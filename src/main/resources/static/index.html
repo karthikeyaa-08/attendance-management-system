@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance Management System</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-icon">A</span><div><h1>AttendEase</h1><p>Attendance Management System</p></div></div>
+    <span class="live-pill"><span></span> Student Portal</span>
+  </header>
+  <main class="container">
+    <section class="welcome">
+      <div><p class="eyebrow">OVERVIEW</p><h2>Good day, Teacher 👋</h2><p class="muted">Manage students and record daily attendance in one place.</p></div>
+      <label class="date-control">Attendance date <input type="date" id="attendanceDate"></label>
+    </section>
+    <section class="stats">
+      <article class="stat-card"><div class="stat-top"><span>Total students</span><span class="stat-icon purple">♙</span></div><strong id="totalStudents">0</strong><small>Registered students</small></article>
+      <article class="stat-card"><div class="stat-top"><span>Present today</span><span class="stat-icon green">✓</span></div><strong id="presentCount">0</strong><small>Marked present</small></article>
+      <article class="stat-card"><div class="stat-top"><span>Absent today</span><span class="stat-icon red">×</span></div><strong id="absentCount">0</strong><small>Marked absent</small></article>
+      <article class="stat-card"><div class="stat-top"><span>Not marked</span><span class="stat-icon amber">◷</span></div><strong id="notMarkedCount">0</strong><small>Pending attendance</small></article>
+    </section>
+    <section class="content-grid">
+      <article class="panel">
+        <div class="panel-heading"><div><p class="eyebrow">DIRECTORY</p><h3>Students</h3></div><span class="count" id="studentCount">0 students</span></div>
+        <form id="studentForm" class="student-form">
+          <label>Roll number<input id="rollNumber" placeholder="e.g. CS001" required maxlength="30"></label>
+          <label>Student name<input id="studentName" placeholder="e.g. Priya Sharma" required maxlength="80"></label>
+          <label>Course / class<input id="course" placeholder="e.g. CSE - A" required maxlength="80"></label>
+          <button class="primary-btn" type="submit">＋ Add student</button>
+        </form>
+        <div class="table-wrap"><table><thead><tr><th>Student</th><th>Roll no.</th><th>Course</th><th>Action</th></tr></thead><tbody id="studentsBody"></tbody></table></div>
+      </article>
+      <article class="panel">
+        <div class="panel-heading"><div><p class="eyebrow">DAILY REGISTER</p><h3>Mark attendance</h3></div><span class="today-tag" id="dateLabel">Today</span></div>
+        <p class="muted helper">Choose Present or Absent for each student, then click Save.</p>
+        <div id="attendanceList" class="attendance-list"></div>
+        <div class="attendance-footer"><span class="muted" id="attendanceHint">Add students to begin.</span><button class="primary-btn" id="saveAttendance">Save attendance</button></div>
+      </article>
+    </section>
+    <section class="panel records-panel">
+      <div class="panel-heading"><div><p class="eyebrow">HISTORY</p><h3>Attendance records</h3></div><span class="count" id="recordCount">0 records</span></div>
+      <div class="table-wrap"><table><thead><tr><th>Student</th><th>Roll no.</th><th>Course</th><th>Date</th><th>Status</th></tr></thead><tbody id="recordsBody"></tbody></table></div>
+    </section>
+    <div id="toast" class="toast" role="status"></div>
+    <footer>AttendEase · Java + Spring Boot + HTML/CSS/JavaScript</footer>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
